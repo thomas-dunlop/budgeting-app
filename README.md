@@ -13,7 +13,7 @@
 
 
 ## General Information
-The purspoe of this project was to demonstrate competancy in the following areas by building both an API and front end:
+The purpose of this project was to demonstrate competancy in the following areas by building both an API and front end:
 - Ability to write HTTP endpoints using express.js. 
 - Ability to use express middleware. 
 - Ability to build a dynamic front end using HTML and a linked Javacript file. 
