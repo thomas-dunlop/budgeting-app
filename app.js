@@ -1,14 +1,17 @@
 //Initialize Express
 const express = require('express');
+const cors = require('cors');
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cors());
 const port = 3000;
 
 //Set global variables
 let envelopeIdCounter = 0;
 const envelopeArray = [];
 
-//Envelop Class and Array
+//Envelope class and array
 class Envelope {
     constructor (name, money, budget) {
         this.name = name;
@@ -30,7 +33,7 @@ addEnvelope('Rent', 3000, 3000);
 addEnvelope('Gas', 100, 200);
 
 //MIDDLEWARE
-//Validates that envelope exists
+//Validates that an envelope exists
 app.param('id', (req, res, next, id) => {
     let foundEnvelope = envelopeArray.find( ({ id }) => id.toString() === req.params.id);
     if (foundEnvelope) {
@@ -57,7 +60,7 @@ app.get('/:id', (req, res) => {
 //POST request for adding a new envelope
 app.post('/', (req, res) => {
     addEnvelope(req.body.name, req.body.money, req.body.budget);
-    res.status(201).send('New envelope created.') 
+    res.status(201).send('New envelope created.'); 
 })
 
 //DELETE request for deleting an envelope

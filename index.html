@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Envelope Budgeting App</title>
+        <script src="./front-end-scripts.js"></script>
+    </head>
+    <body onload = "getEnvelopes()">   
+        <h1>Add an Envelope</h1>
+        <form target="_blank" action="http://localhost:3000/" method="POST">
+            <div>
+                <label for="name">Envelope Name:</label>
+                <input type="text" name="name" id="name"><br>
+                <label for="money">Current Funds:</label>
+                <input type="number" name="money" id="money"><br>
+                <label for="budget">Budget:</label>
+                <input type="number" name="budget" id="budget"><br>
+            </div>
+            <div>
+                <input type="submit" value="Add">
+            </div>
+        </form>
+        <h1>Current Envelopes</h1>
+    </body>
+</html>
