@@ -55,8 +55,8 @@ const getEnvelopes = async () => {
             jsonResponse.forEach(element => {
                 //Creates HTML content for envelope info
                 addElement("h2", "name", "Envelope: " + element.name);
-                addElement("p", "money", "Funds Remaining: " + element.money);
                 addElement("p", "budget", "Monthly Budget: " + element.budget);
+                addElement("p", "money", "Funds Remaining: " + element.money);
 
                 //Creates delete button
                 addElement("button", element.name + "deleteButton", "Delete Envelope");
