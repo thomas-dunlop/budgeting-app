@@ -36,7 +36,7 @@ List the ready features here:
 
 
 ## Setup
-Start by downloading the repository to your local computer and navigating to the root directory. The server can then be initialized using the `node app.js` command in your terminal. The front end can be started by copying and pasting the filepath for the index.html file into your web browser of choice. The server is hosted at **http://localhost:3000/**, although the port can be changed by editing the `port` variable in the `//Initialize Express` section of the app.js file. The app comes with three pre-made envelopes in the `//Test Envelopes` section of the app.js file. These can be changed by either editing the app.js file directly, through a servicec like Postman, or through the front end. 
+Start by downloading the repository to your local computer and navigating to the root directory. The server can then be initialized using the `node app.js` command in your terminal. The front end can be started by copying and pasting the filepath for the index.html file into your web browser of choice. The server is hosted at **http://localhost:3000/**, although the port can be changed by editing the `port` variable in the `//Initialize Express` section of the app.js file. The app comes with three pre-made envelopes in the `//Test Envelopes` section of the app.js file. These can be changed by either editing the app.js file directly, through a service like Postman, or through the front end. 
 
 
 ## Project Status
