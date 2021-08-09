@@ -31,7 +31,7 @@ List the ready features here:
 
 
 ## Screenshots
-![Front End Screenshot](./FrontEndScreenshot.png)
+![Front End Screenshot](FrontEndScreenshot.PNG)
 <!-- If you have screenshots you'd like to share, include them here. -->
 
 
