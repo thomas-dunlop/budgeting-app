@@ -6,14 +6,14 @@
     </head>
     <body onload = "getEnvelopes()">   
         <h1>Add an Envelope</h1>
-        <form target="_blank" action="http://localhost:3000/" method="POST">
+        <form target="_blank" action="http://localhost:3000/envelopes" method="POST">
             <div>
                 <label for="name">Envelope Name:</label>
-                <input type="text" name="name" id="name"><br>
+                <input type="text" name="env_name" id="name"><br>
                 <label for="money">Current Funds:</label>
-                <input type="number" name="money" id="money"><br>
+                <input type="number" name="env_money" id="money"><br>
                 <label for="budget">Budget:</label>
-                <input type="number" name="budget" id="budget"><br>
+                <input type="number" name="env_budget" id="budget"><br>
             </div>
             <div>
                 <input type="submit" value="Add">
