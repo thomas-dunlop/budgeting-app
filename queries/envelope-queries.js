@@ -8,7 +8,7 @@ const pool = new Pool({
     PORT: 5432
 });
 
-//Get all envelopes query
+//Get all envelopes 
 const getAllEnvelopes = (req, res) => {
     const text = 'SELECT * FROM envelope';
     pool.query(text, null, (error, result) => {
@@ -20,7 +20,7 @@ const getAllEnvelopes = (req, res) => {
     })
 };
 
-//Get a specific envelope query
+//Get a specific envelope 
 const getEnvelopeById = (req, res) => {
     const id = parseInt(req.params.id);
     const values = [];

@@ -8,6 +8,7 @@ CREATE TABLE envelope (
 CREATE TABLE transaction (
     id SERIAL PRIMARY KEY,
     env_id integer REFERENCES envelope(id),
+    t_date date,
     amount decimal,
     recipient text
 )
