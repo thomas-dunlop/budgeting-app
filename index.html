@@ -4,21 +4,41 @@
         <title>Envelope Budgeting App</title>
         <script src="./front-end-scripts.js"></script>
     </head>
-    <body onload = "getEnvelopes()">   
-        <h1>Add an Envelope</h1>
+    <body onload = "loadData()">   
+        <h1>Commands</h1>
+        <h2>Add an Envelope</h2>
         <form target="_blank" action="http://localhost:3000/envelopes" method="POST">
             <div>
                 <label for="name">Envelope Name:</label>
                 <input type="text" name="env_name" id="name"><br>
-                <label for="money">Current Funds:</label>
-                <input type="number" name="env_money" id="money"><br>
                 <label for="budget">Budget:</label>
                 <input type="number" name="env_budget" id="budget"><br>
+                <label for="money">Current Funds:</label>
+                <input type="number" name="env_money" id="money"><br>
             </div>
             <div>
                 <input type="submit" value="Add">
             </div>
         </form>
-        <h1>Current Envelopes</h1>
+        <h2>Add a Transaction</h2>
+        <form target="_blank" action="http://localhost:3000/transactions" method="POST">
+            <div>
+                <label for="env_id">Envelope ID:</label>
+                <input type="number" name="env_id" id="env_id"><br>
+                <label for="t_date">Date:</label>
+                <input type="date" name="t_date" id="t_date"><br>
+                <label for="amount">Amount:</label>
+                <input type="number" name="amount" id="amount"><br>
+                <label for="recipient">Recipient:</label>
+                <input type="text" name="recipient" id="recipient"><br>
+            </div>
+            <div>
+                <input type="submit" value="Add">
+            </div>
+        </form>
+        <h2>Delete a Transaction</h2>
+        <label for="transactionId">Transaction ID</label>
+        <input type="number" name="transactionId" id='transactionId'>
+        <button onclick="deleteTransaction()">Delete</button>
     </body>
 </html>

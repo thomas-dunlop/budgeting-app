@@ -47,6 +47,21 @@ const deleteEnvelopes = async (id) => {
         }
 }
 
+//Function for deleting specific transaction
+const deleteTransaction = async() => {
+    try {
+        id = document.getElementById(`transactionId`).value
+        const response = await fetch('http://localhost:3000/transactions/' + id, {method: 'DELETE'});
+        if (response.ok) {
+            window.location.reload();
+        } else {
+            throw new Error('Issue deleting envelope');
+        }
+    } catch(error) {
+        console.log(error);
+    }
+}
+
 //Function used for retrieving all envelopes from the server (mainly used on page load);
 const getEnvelopes = async () => {
     try {
@@ -57,8 +72,10 @@ const getEnvelopes = async () => {
                 let envelopeName = element.env_name;
                 let envelopeBudget = element.env_budget;
                 let envelopeMoney = element.env_money;
+                let envelopeId = element.id;
+
                 //Creates HTML content for envelope info
-                addElement("h2", "name", "Envelope: " + envelopeName);
+                addElement("h2", "name", "Envelope: " + envelopeName + ' (' + envelopeId + ')');
                 addElement("p", "budget", "Monthly Budget: " + envelopeBudget);
                 addElement("p", "money", "Funds Remaining: " + envelopeMoney);
 
@@ -109,7 +126,7 @@ const getEnvelopes = async () => {
                 document.body.appendChild(break3);
 
                 //Adds a submit button
-                addElement("button", envelopeName + "submitButton", "Submit funds or spending");
+                addElement("button", envelopeName + "submitButton", "Submit Updates");
                 let submitFormButton =  document.getElementById(envelopeName + "submitButton");
                 submitFormButton.setAttribute("onclick", `updateEnvelope(${element.id}, "${envelopeName}")`);
                 
@@ -118,6 +135,45 @@ const getEnvelopes = async () => {
             throw new Error('Issue retreiving envelopes.');
         }
     } catch(error) {
+        console.log(error);
+    }
+}
+
+//Function used for retrieving all transactions from the server (mainly used on page load);
+const getTransactions = async () => {
+    try {
+        const response = await fetch('http://localhost:3000/transactions');
+        if (response.ok) {
+            let jsonResponse = await response.json();
+            jsonResponse.forEach(element => {
+                let transactionId = element.id;
+                let envId = element.env_id;
+                let date = element.t_date;
+                let amount = element.amount;
+                let recipient = element.recipient;
+
+                addElement("h2", "name", "Transaction ID: " + transactionId);
+                addElement("p", "envId", "Envelope ID: " + envId);
+                addElement("p", "date", "Date: " + date);
+                addElement("p", "amount", "Amount: " + amount);
+                addElement("p", "recipient", "Recipient: " + recipient);
+            })
+        } else {
+            throw new Error('Issue retreiving transactions');
+        }
+    } catch(error) {
+        console.log(error);
+    }
+}
+
+//Retrieves data on Webpage Load
+const loadData = async () => {
+    try {
+        addElement("h1", "", "Current Envelopes");
+        await getEnvelopes();
+        addElement("h1", "", "Current Transactions");
+        await getTransactions();
+    } catch(error){
         console.log(error);
     }
 }
