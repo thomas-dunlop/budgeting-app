@@ -1,12 +1,4 @@
-//Set up Pool
-const {Pool, Client} = require('pg');
-const pool = new Pool({
-    user: 'me',
-    host: 'localhost',
-    database: 'envelope_budget_db',
-    password: 'me2',
-    PORT: 5432
-});
+const {pool} = require('../config');
 
 //Get all transactions 
 const getAllTransactions = (req, res) => {
