@@ -1,3 +1,13 @@
+// Defining URL based on production vs local
+require('dotenv').config();
+const isProduction = process.env.NODE_ENV === 'production';
+let url;
+if(isProduction === true) {
+    url = 'https://envelope-budget-app.herokuapp.com/'
+} else {
+    url = 'http://localhost:3000/'
+};
+
 //Function for adding elements of any type to the DOM
 const addElement = (type, id, text) => {
     const newElement = document.createElement(type);
@@ -16,7 +26,7 @@ const updateEnvelope = async (idValue, nameValue) => {
 
     //Implements PUT fetch command
     try {
-        const response = await fetch('http://localhost:3000/envelopes/' + idValue, {
+        const response = await fetch(url + 'envelopes/' + idValue, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -36,7 +46,7 @@ const updateEnvelope = async (idValue, nameValue) => {
 //Function for deleting specific envelopes. 
 const deleteEnvelopes = async (id) => {
     try {
-        const response = await fetch('http://localhost:3000/envelopes/' + id, {method: 'DELETE'});
+        const response = await fetch(url + 'envelopes/' + id, {method: 'DELETE'});
             if(response.ok) {
                 window.location.reload();
             } else {
@@ -51,7 +61,7 @@ const deleteEnvelopes = async (id) => {
 const deleteTransaction = async() => {
     try {
         id = document.getElementById(`transactionId`).value
-        const response = await fetch('http://localhost:3000/transactions/' + id, {method: 'DELETE'});
+        const response = await fetch(url + 'transactions/' + id, {method: 'DELETE'});
         if (response.ok) {
             window.location.reload();
         } else {
@@ -65,7 +75,7 @@ const deleteTransaction = async() => {
 //Function used for retrieving all envelopes from the server (mainly used on page load);
 const getEnvelopes = async () => {
     try {
-        const response = await fetch('http://localhost:3000/envelopes')
+        const response = await fetch(url + 'envelopes')
         if(response.ok) {
             let jsonResponse = await response.json();
             jsonResponse.forEach(element => {
@@ -142,7 +152,7 @@ const getEnvelopes = async () => {
 //Function used for retrieving all transactions from the server (mainly used on page load);
 const getTransactions = async () => {
     try {
-        const response = await fetch('http://localhost:3000/transactions');
+        const response = await fetch(url + 'transactions');
         if (response.ok) {
             let jsonResponse = await response.json();
             jsonResponse.forEach(element => {

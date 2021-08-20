@@ -7,7 +7,13 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-const port = process.env.PORT; //Change to "3000" if using locally.
+let port 
+const isProduction = process.env.NODE_ENV === 'production';
+if(isProduction === true) {
+    port = process.env.PORT;
+} else {
+    port = 3000;
+};
 
 //Bring in routers
 const envelopeRoute = require('./routes/envelopes')
@@ -17,8 +23,6 @@ app.use('/transactions', transactionRoute);
 
 //Enpoints for retreiving HTML and Javascript files for front end
 app.get('/', (req, res) => {
-    console.log(process.env.DATABASE_URL);
-    console.log(process.env.NODE_ENV);
     res.status(200).sendFile('index.html', {root: __dirname});
 })
 app.get('/front-end-scripts.js', (req, res) => {
