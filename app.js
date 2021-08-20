@@ -1,5 +1,6 @@
 //Initialize Express
 require('dotenv').config();
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -16,10 +17,10 @@ app.use('/transactions', transactionRoute);
 
 //Enpoints for retreiving HTML and Javascript files for front end
 app.get('/', (req, res) => {
-    res.status(200).sendFile('index.html', {root: 'C:/Users/dunlo/codingProjects/budgeting-app/'});
+    res.status(200).sendFile('index.html', {root: __dirname});
 })
 app.get('/front-end-scripts.js', (req, res) => {
-    res.status(200).sendFile('front-end-scripts.js', {root: 'C:/Users/dunlo/codingProjects/budgeting-app/'});
+    res.status(200).sendFile('front-end-scripts.js', {root: __dirname});
 })
 
 app.listen(port, () => {
