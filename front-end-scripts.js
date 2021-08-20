@@ -1,6 +1,5 @@
 // Defining URL based on production vs local
-require('dotenv').config();
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = true;
 let url;
 if(isProduction === true) {
     url = 'https://envelope-budget-app.herokuapp.com/'
