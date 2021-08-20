@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-const port = process.env.PORT; //Change to "3000" is using locally.
+const port = process.env.PORT; //Change to "3000" if using locally.
 
 //Bring in routers
 const envelopeRoute = require('./routes/envelopes')
