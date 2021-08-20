@@ -39,9 +39,13 @@ List the ready features here:
 
 
 ## Setup
-Start by downloading the repository to your local computer and navigating to the root directory. First of all, you will need to create the database. Download postgreSQL, set it up, and create a database. You should name the database **envelope_budget_db** or name it something different and modify the `database` variable from the `pool` object in the `envelope-queries.js` and `transaction-queries.js` files to match. Then, run the query commands in database-creation-script.sql file to create the proper tables. You will then need to create a user to access the database. The default user is named **me** with **me2** as the password, but you can create whatever user you like and modify the `user` and `password` variables from the `pool` object in the `envelope-queries.js` and `transaction-queries.js` files to match. 
+Start by downloading the repository to your local computer and navigating to the root directory. First of all, you will need to create the database. Download postgreSQL, set it up, and create a database. You should name the database **envelope_budget_db** or name it something different and modify the `DB_DATABASE` variable from the `.env` file to match. Then, run the query commands in init.sql file to create the proper tables. You will then need to create a user to access the database. The default user is named **me2** with **me3** as the password, but you can create whatever user you like and modify the `DB_USER` and `DB_PASSWORD` variables from the `.env` file to match. 
 
-The server can then be initialized using the `node app.js` command in your terminal. The server is hosted at **http://localhost:3000/**, although the port can be changed by editing the `port` variable in the `//Initialize Express` section of the app.js file. To access the front end, go to **http://localhost:3000/homepage**.
+The server can then be initialized using the `node app.js` command in your terminal. The server is hosted at **http://localhost:3000/**, although the port can be changed by editing the `port` variable in the `//Initialize Express` section of the app.js file. To access the front end, go to **http://localhost:3000/**. 
+
+Note, the app has been slightly modified to allow for deployment to Heroku. In order to undo these changes to allow for local deployment, you will need to make the following changes:
+- Change the `isProduction` variable in the `front-end-scripts.js` file from `true` to `false`. 
+- For both forms in the `index.html` file, change the path for the `action` attribute from **https://envelope-budget-app.herokuapp.com/** to **http://localhost:3000/**. 
 
 
 ## Project Status
@@ -53,6 +57,7 @@ Room for improvement:
 - A prettier front end (add some CSS).
 - Better client side and server side form validation.
 - Some test cases.  
+- Security features such as rate limiting. 
 
 
 ## Acknowledgements
