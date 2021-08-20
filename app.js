@@ -17,6 +17,8 @@ app.use('/transactions', transactionRoute);
 
 //Enpoints for retreiving HTML and Javascript files for front end
 app.get('/', (req, res) => {
+    console.log(process.env.DATABASE_URL);
+    console.log(process.env.NODE_ENV);
     res.status(200).sendFile('index.html', {root: __dirname});
 })
 app.get('/front-end-scripts.js', (req, res) => {
