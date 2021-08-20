@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-const port = process.env.PORT;
+const port = process.env.PORT; //Change to "3000" is using locally.
 
 //Bring in routers
 const envelopeRoute = require('./routes/envelopes')
@@ -15,7 +15,7 @@ const transactionRoute = require('./routes/transactions');
 app.use('/transactions', transactionRoute);
 
 //Enpoints for retreiving HTML and Javascript files for front end
-app.get('/homepage', (req, res) => {
+app.get('/', (req, res) => {
     res.status(200).sendFile('index.html', {root: 'C:/Users/dunlo/codingProjects/budgeting-app/'});
 })
 app.get('/front-end-scripts.js', (req, res) => {
