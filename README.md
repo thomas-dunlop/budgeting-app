@@ -43,7 +43,7 @@ Start by downloading the repository to your local computer and navigating to the
 
 The server can then be initialized using the `node app.js` command in your terminal. The server is hosted at **http://localhost:3000/**, although the port can be changed by editing the `port` variable in the `//Initialize Express` section of the app.js file. To access the front end, go to **http://localhost:3000/**. 
 
-Note, the app has been slightly modified to allow for deployment to Heroku. In order to undo these changes to allow for local deployment, you will need to make the following changes:
+Note, the app has been slightly modified to allow for deployment to Heroku. In order to undo these changes to allow for local deployment, you will need to make the following edits:
 - Change the `isProduction` variable in the `front-end-scripts.js` file from `true` to `false`. 
 - For both forms in the `index.html` file, change the path for the `action` attribute from **https://envelope-budget-app.herokuapp.com/** to **http://localhost:3000/**. 
 
