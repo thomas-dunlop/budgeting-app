@@ -1,4 +1,4 @@
-# Project Name
+# Express Budgeting App
 > I built this API + front end + back end to satisfy the "Budgeting Project" for my "Back-End Engineer Career Path" program on Code Academy. The project consists of an API, a database for storing data, and a simple front end that allows a user to plan and monitor their personal budget using the [envelope method](https://www.thebalance.com/what-is-envelope-budgeting-1293682). 
 
 ## Table of Contents
